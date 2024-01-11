@@ -28,14 +28,6 @@
     "repositoryUrl": "https://github.com/irenekyc/try-semantic-release.git",
     "branches": [
       "master", "develop"
-    ],
-    "plugins": [
-      [
-        "@semantic-release/exec",
-        {
-          "verifyReleaseCmd": "echo '${nextRelease.version}' > version.txt"
-        }
-      ]
     ]
   }
 }
