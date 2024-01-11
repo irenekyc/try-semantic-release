@@ -18,6 +18,7 @@
   "devDependencies": {
     "@commitlint/cli": "^18.4.4",
     "@commitlint/config-conventional": "^18.4.4",
+    "@semantic-release/changelog": "^6.0.3",
     "husky": "^8.0.3"
   },
   "dependencies": {
@@ -66,7 +67,13 @@
           ]
         }
       ],
-      "@semantic-release/release-notes-generator"
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "CHANGELOG.md"
+        }
+      ]
     ]
   }
 }
