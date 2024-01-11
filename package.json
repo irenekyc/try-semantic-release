@@ -37,7 +37,8 @@
       [
         "@semantic-release/exec",
         {
-          "verifyReleaseCmd": "echo '${nextRelease.version}' > version.text"
+          "verifyReleaseCmd": "echo '${nextRelease.version}' > version.text",
+          "prepareCmd": "git tag -d '${nextRelease.version} git push origin :refs/tags/${nextRelease.version}"
         }
       ],
       [
