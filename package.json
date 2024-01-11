@@ -37,8 +37,8 @@
       [
         "@semantic-release/exec",
         {
-          "verifyReleaseCmd": "echo '${nextRelease}' > version.json",
-          "publishCmd": "git tag ${nextRelease.version} --f"
+          "verifyReleaseCmd": "echo '${nextRelease.version}' > version.text",
+          "publishCmd": "git tag ${nextRelease.version} -f"
         }
       ],
       [
