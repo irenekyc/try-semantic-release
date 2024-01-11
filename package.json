@@ -35,7 +35,9 @@
             [
                 "@semantic-release/exec",
                 {
-                    "verifyReleaseCmd": "echo '${nextRelease.version}' > version.txt"
+                    "verifyReleaseCmd": "echo '${nextRelease.version}' > version.txt",
+                    "publishCmd": "echo '${nextRelease.version}' > release-version.txt"
+
                 }
             ],
             [
@@ -43,8 +45,12 @@
                 {
                     "releaseRules": [
                         {
-                            "type": "break",
+                            "type": "major",
                             "release": "major"
+                        },
+                        {
+                            "type": "feature",
+                            "release": "minor"
                         },
                         {
                             "type": "feat",
@@ -53,8 +59,11 @@
                         {
                             "type": "fix",
                             "release": "patch"
+                        },
+                        {
+                            "type": "styles",
+                            "release": "patch"
                         }
-
                     ]
                 }
             ],
