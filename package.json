@@ -1,72 +1,72 @@
 {
-    "name": "mono-repo-test-version",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "private": true,
-    "workspaces": [
-        "child-1",
-        "child-2"
+  "name": "mono-repo-test-version",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "child-1",
+    "child-2"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "npx semantic-release"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.4",
+    "@commitlint/config-conventional": "^18.4.4",
+    "husky": "^8.0.3"
+  },
+  "dependencies": {
+    "@semantic-release/exec": "^6.0.3",
+    "@semantic-release/release-notes-generator": "^12.1.0",
+    "semantic-release": "^22.0.12"
+  },
+  "release": {
+    "repositoryUrl": "https://github.com/irenekyc/try-semantic-release.git",
+    "branches": [
+      "master",
+      "develop"
     ],
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "release": "npx semantic-release"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "@commitlint/cli": "^18.4.4",
-        "@commitlint/config-conventional": "^18.4.4",
-        "husky": "^8.0.3"
-    },
-    "dependencies": {
-        "@semantic-release/exec": "^6.0.3",
-        "@semantic-release/release-notes-generator": "^12.1.0",
-        "semantic-release": "^22.0.12"
-    },
-    "release": {
-        "repositoryUrl": "https://github.com/irenekyc/try-semantic-release.git",
-        "branches": [
-            "master",
-            "develop"
-        ],
-        "plugins": [
-            [
-                "@semantic-release/exec",
-                {
-                    "verifyReleaseCmd": "echo '${nextRelease.version}' > version.txt",
-                    "publishCmd": "git tag ${nextRelease.version}"
-                }
-            ],
-            [
-                "@semantic-release/commit-analyzer",
-                {
-                    "releaseRules": [
-                        {
-                            "type": "major",
-                            "release": "major"
-                        },
-                        {
-                            "type": "feature",
-                            "release": "minor"
-                        },
-                        {
-                            "type": "feat",
-                            "release": "minor"
-                        },
-                        {
-                            "type": "fix",
-                            "release": "patch"
-                        },
-                        {
-                            "type": "styles",
-                            "release": "patch"
-                        }
-                    ]
-                }
-            ],
-            "@semantic-release/release-notes-generator"
-        ]
-    }
+    "plugins": [
+      [
+        "@semantic-release/exec",
+        {
+          "verifyReleaseCmd": "echo '${nextRelease.version}' > version.txt",
+          "publishCmd": "git tag ${nextRelease.version}"
+        }
+      ],
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "releaseRules": [
+            {
+              "type": "major",
+              "release": "major"
+            },
+            {
+              "type": "feature",
+              "release": "minor"
+            },
+            {
+              "type": "feat",
+              "release": "minor"
+            },
+            {
+              "type": "fix",
+              "release": "patch"
+            },
+            {
+              "type": "styles",
+              "release": "patch"
+            }
+          ]
+        }
+      ],
+      "@semantic-release/release-notes-generator"
+    ]
+  }
 }
