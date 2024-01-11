@@ -1,33 +1,67 @@
 {
-  "name": "mono-repo-test-version",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "private": true,
-  "workspaces": [
-    "child-1",
-    "child-2"
-  ],
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "release": "npx semantic-release"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@commitlint/cli": "^18.4.4",
-    "@commitlint/config-conventional": "^18.4.4",
-    "husky": "^8.0.3"
-  },
-  "dependencies": {
-    "@semantic-release/exec": "^6.0.3",
-    "semantic-release": "^22.0.12"
-  },
-  "release": {
-    "repositoryUrl": "https://github.com/irenekyc/try-semantic-release.git",
-    "branches": [
-      "master", "develop"
-    ]
-  }
+    "name": "mono-repo-test-version",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "private": true,
+    "workspaces": [
+        "child-1",
+        "child-2"
+    ],
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "release": "npx semantic-release"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@commitlint/cli": "^18.4.4",
+        "@commitlint/config-conventional": "^18.4.4",
+        "husky": "^8.0.3"
+    },
+    "dependencies": {
+        "@semantic-release/exec": "^6.0.3",
+        "@semantic-release/release-notes-generator": "^12.1.0",
+        "semantic-release": "^22.0.12"
+    },
+    "release": {
+        "repositoryUrl": "https://github.com/irenekyc/try-semantic-release.git",
+        "branches": [
+            "master",
+            "develop"
+        ],
+        "plugins": [
+            [
+                "@semantic-release/exec",
+                {
+                    "verifyReleaseCmd": "echo '${nextRelease.version}' > version.txt"
+                }
+            ],
+            [
+                "@semantic-release/commit-analyzer",
+                {
+                    "releaseRules": [
+                        {
+                            "type": "major",
+                            "release": "major"
+                        },
+                        {
+                            "type": "minor",
+                            "release": "minor"
+                        },
+                        {
+                            "message": "**/*",
+                            "release": "patch"
+                        },
+                        {
+                            "scope": "no-release",
+                            "release": false
+                        }
+                    ]
+                }
+            ],
+            "@semantic-release/release-notes-generator"
+        ]
+    }
 }
