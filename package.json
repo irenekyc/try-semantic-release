@@ -19,6 +19,7 @@
     "@commitlint/cli": "^18.4.4",
     "@commitlint/config-conventional": "^18.4.4",
     "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
     "husky": "^8.0.3"
   },
   "dependencies": {
@@ -72,6 +73,14 @@
         "@semantic-release/changelog",
         {
           "changelogFile": "docs/CHANGELOG.md"
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "docs/CHANGELOG.md"
+          ]
         }
       ]
     ]
