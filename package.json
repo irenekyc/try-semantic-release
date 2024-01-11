@@ -43,21 +43,18 @@
                 {
                     "releaseRules": [
                         {
-                            "type": "major",
+                            "type": "break",
                             "release": "major"
                         },
                         {
-                            "type": "minor",
+                            "type": "feat",
                             "release": "minor"
                         },
                         {
-                            "message": "**/*",
+                            "type": "fix",
                             "release": "patch"
-                        },
-                        {
-                            "scope": "no-release",
-                            "release": false
                         }
+
                     ]
                 }
             ],
