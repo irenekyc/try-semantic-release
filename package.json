@@ -38,7 +38,7 @@
         "@semantic-release/exec",
         {
           "verifyReleaseCmd": "echo '${nextRelease.version}' > version.text",
-          "prepareCmd": "git tag -d v${nextRelease.version}"
+          "prepareCmd": "git tag -d ${lastRelease.gitTag}"
         }
       ],
       [
@@ -73,6 +73,11 @@
         "@semantic-release/changelog",
         {
           "changelogFile": "docs/CHANGELOG.md"
+        }
+      ],
+      [
+        "@semantic-release/git",{
+          "assets":["CHANGELOG.md"]
         }
       ]
     ]
