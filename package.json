@@ -9,7 +9,8 @@
     "child-2"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "npx semantic-release"
   },
   "keywords": [],
   "author": "",
@@ -18,5 +19,23 @@
     "@commitlint/cli": "^18.4.4",
     "@commitlint/config-conventional": "^18.4.4",
     "husky": "^8.0.3"
+  },
+  "dependencies": {
+    "@semantic-release/exec": "^6.0.3",
+    "semantic-release": "^22.0.12"
+  },
+  "release": {
+    "repositoryUrl": "https://github.com/irenekyc/try-semantic-release.git",
+    "branches": [
+      "master"
+    ],
+    "plugins": [
+      [
+        "@semantic-release/exec",
+        {
+          "verifyReleaseCmd": "echo '${nextRelease.version}' > version.txt"
+        }
+      ]
+    ]
   }
 }
