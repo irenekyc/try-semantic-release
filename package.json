@@ -27,7 +27,7 @@
   "release": {
     "repositoryUrl": "https://github.com/irenekyc/try-semantic-release.git",
     "branches": [
-      "master"
+      "master", "develop"
     ],
     "plugins": [
       [
